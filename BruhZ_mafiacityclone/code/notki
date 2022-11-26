@@ -1,0 +1,67 @@
+Notki od razu po zakonczeniu:
+- trzeba wypolerowac aktualne funkcje, bedzie lista do tego co nalezy zrobic
+- trzeba bedzie rozpisac all images na image od srodowiska i od obiektow, aby szybciej for loopy w obiektach chodzily
+- podczas brania jakiejs ilosci broni bierze obiekt pierwszy z listy, sprawdz Player.object_collision()
+- putable_obj atrybut jest bardzo wazny, skraca i zmniejsza ilosc pisania funkcji, ale bez niego jest dupa
+- niektore obiekty maja interact lub hurt recty, z customowa pozycja i miejscem ogarniecia
+
+
+
+Do wypolerowania: most important, to do if you see this:
+
+-+ danie jakiegos interfejsu pod reloading, maybe later
+
+DONE danie npc i sobie mozliwosci smierci i dostania damage'a, bardzo podstawowa, brakuje czegos takiego jak np strzal w glowe
+DONE danie npc kolizje hurtbox, sobie tez i ogarniecie kolizji
+DONE ogarniecie klas pod podnoszenie broni (ugh, lekkie komplikacje ale dziala)
+DONE ogarnecie gun na podklase, z ktorej latwiej bedzie sie robilo pistolety
+DONE ogarniecie pozycji kolizji z obiektami gracza (znajduje sie w jego nogach)
+DONE momentami strzela bez efektu nwm czemu, moze trzeba przedluzyc efekt o 2,3 klatki
+DONE delta_time poogarniac do tego szajstwa, jprd:
+        obrot broni
+        obrot image broii
+DONE dodac odrzut broni, move toward bedzie dobry do tego oraz kolejna angle variable
+DONE podazanie za myszka anizeli bycie przyklejonym, troche dziwnie wyglada (najlepiej by bylo od 500 w gore go ustawiac
+        duza liczba bo jeszcze delta istnieje)
+DONE zapisuje ilosc amunicji broni
+DONE branie z wierzchu bronii
+DONE podzielenie broni na automatyczna i nie
+DONE odkladanie bronii
+
+
+
+Aby pamietac:
+- rob transparent image'e
+- nwm czemu ale w broniach nie moge set_coloerkey przy npc jpg
+- self.pos jest ogolna var dla pozycji sprite, image etc, przyda sie to pod camera pozniej. moze komplikowac przez ruch rect'ow
+- wszystkie set_colorkey to czysta biel 255,255,255
+- self.active w image'ach jest od definiowania czy obiekt ma byc update'owany  blit'owany, glownie pod bronie
+- postanowilem wsadzic timery do klas anizeli robic kolejna grupe i w obiektach je aktualizowac
+- jakby byl problem z obrotem broni na nizszych fps, to nalezy wejsc w gun gun_angle_looking_at i zmienic tam gdzie trzeba na int
+  ale nie sadze aby taki problem sie pojawil
+
+Notki na pozniej:
+- istnieje cos takiego jak clipline ktore mozna wykorzystac do kolizji rect'a z linia, no kurwa mac
+- nie warto niektorych rzeczy robic jako sprite, przy 1002 spritach bylo czuc spadek fps'ow
+- na spokojnie wytrzyma wieksza ilosc image'ow, jednakze ladowane na raz wywalic moga program
+- efekt strzalu bedzie tam blitowany gdzie bron, raczej nie powinno psuc wizuali
+- raycast nie lezy idealnie na myszce, nwm czy to poprawic szczerze, lezy po muszce wzdloz linii
+- duze surface komplikuje sprawy
+- caly czas zle delty uzywalem, powinienem jej uzywac juz w move_toward podczas 2 i 3 arg
+
+To do:
+- mechanika strzelania i umierania npc'ow
+- zmiana broni
+
+
+Done milestone's:
+- nope XD
+
+Done:
+- zrobiony autoload w stylu godot'a. ogarniety przy tym brak potrzeby wpisywania ciagle grup i brudzenia loops file
+- aktywnosc blitu i updateu broni tylko gdy jest w dloni. pozycja, flip, angle image broni
+
+
+If needed:
+-+ after effect po strzale stojacy w miejscu
+-+ trzeba pokombinowac z after effect strzalu, zapewne z uzyciem matematyki, wielkie surface odpada
